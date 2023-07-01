@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
 public class CurrencyConverter {
     public static void main(String[] args) {
         // Menú principal
-        String[] options = { "COP a Extranjera", "COP a Extranjera Detalles", "Extranjera a COP" };
+        String[] options = { "COP a Extranjera", "COP a Extranjera Detalles", "Extranjera a COP", "Temperatura" };
         int selectedOption = JOptionPane.showOptionDialog(null, "Seleccione una opción:", "Conversor de Divisas",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
 
@@ -78,6 +78,32 @@ public class CurrencyConverter {
             JOptionPane.showMessageDialog(null,
                     "Cantidad a convertir (" + selectedCurrency + "): " + amount + "\n" +
                             "Cantidad convertida (COP): " + convertedAmount);
+        } else if (selectedOption == 3) {
+            // Conversión de temperatura
+            String[] temperatureOptions = { "Celsius a Fahrenheit", "Fahrenheit a Celsius" };
+            int selectedTemperatureOption = JOptionPane.showOptionDialog(null, "Seleccione la conversión de temperatura:",
+                    "Conversor de Temperatura", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+                    temperatureOptions, temperatureOptions[0]);
+
+            if (selectedTemperatureOption == 0) {
+                // Conversión de Celsius a Fahrenheit
+                String temperatureInput = JOptionPane.showInputDialog(null, "Ingrese la temperatura en Celsius:");
+                double celsius = Double.parseDouble(temperatureInput);
+                double fahrenheit = convertCelsiusToFahrenheit(celsius);
+
+                JOptionPane.showMessageDialog(null,
+                        "Temperatura en Celsius: " + celsius + "\n" +
+                                "Temperatura en Fahrenheit: " + fahrenheit);
+            } else if (selectedTemperatureOption == 1) {
+                // Conversión de Fahrenheit a Celsius
+                String temperatureInput = JOptionPane.showInputDialog(null, "Ingrese la temperatura en Fahrenheit:");
+                double fahrenheit = Double.parseDouble(temperatureInput);
+                double celsius = convertFahrenheitToCelsius(fahrenheit);
+
+                JOptionPane.showMessageDialog(null,
+                        "Temperatura en Fahrenheit: " + fahrenheit + "\n" +
+                                "Temperatura en Celsius: " + celsius);
+            }
         }
 
         // Cerrar el programa
@@ -149,5 +175,15 @@ public class CurrencyConverter {
     private static double convertKRWtoCOP(double foreignAmount) {
         double conversionRate = 1.0 / 3.17; // Ejemplo: 1 KRW = 3.17 COP
         return foreignAmount / conversionRate;
+    }
+
+// Conversión de Celsius a Fahrenheit (°C a °F)
+    private static double convertCelsiusToFahrenheit(double celsius) {
+        return (celsius * 9.0 / 5.0) + 32.0;
+    }
+
+    // Conversión de Fahrenheit a Celsius (°F a °C)
+    private static double convertFahrenheitToCelsius(double fahrenheit) {
+        return (fahrenheit - 32.0) * 5.0 / 9.0;
     }
 }
