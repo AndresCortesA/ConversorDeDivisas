@@ -29,13 +29,13 @@ El programa ofrece las siguientes funcionalidades:
 A continuación se muestran algunas capturas de pantalla del programa:
 
 - Menú principal
-![Menú principal]  (images/menu_principal.png)
+![Menú principal](images/menu_principal.png)
 
 - Conversión de COP a moneda extranjera
-![COP a Extranjera]  (images/copaextranjera.png)
+![COP a Extranjera](images/copaextranjera.png)
 
 - Conversión de temperatura
-![Conversión de temperatura]  (images/conversion_temperatura.png)
+![Conversión de temperatura](images/conversion_temperatura.png)
 
 ## Requisitos del sistema
 
